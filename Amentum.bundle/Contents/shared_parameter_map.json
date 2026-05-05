@@ -1,0 +1,107 @@
+{
+  "version": 1,
+
+  "parameters": {
+    "Tag": {
+      "guid": "",
+      "revitName": "Mark",
+      "notes": "Device/equipment tag. Many teams use built-in 'Mark', but you can map a Shared Parameter GUID here."
+    },
+    "Comments": {
+      "guid": "",
+      "revitName": "Comments",
+      "notes": "General comment / sync stamp field."
+    },
+
+    "VoltageV": {
+      "guid": "",
+      "revitName": "Voltage (V)",
+      "notes": "Nominal voltage in volts."
+    },
+    "CurrentA": {
+      "guid": "",
+      "revitName": "Current (A)",
+      "notes": "Load current in amps."
+    },
+    "Phase": {
+      "guid": "",
+      "revitName": "Phase",
+      "notes": "Phase indicator (recommended values like 1P / 3P)."
+    },
+    "ConductorType": {
+      "guid": "",
+      "revitName": "Conductor Type",
+      "notes": "Conductor material/insulation (e.g., CU THHN)."
+    },
+    "ConduitSize": {
+      "guid": "",
+      "revitName": "Conduit Size",
+      "notes": "Raceway size (e.g., 3/4\")."
+    },
+    "Panel": {
+      "guid": "",
+      "revitName": "Panel",
+      "notes": "Panel name / board identifier."
+    },
+    "CircuitNumber": {
+      "guid": "",
+      "revitName": "Circuit Number",
+      "notes": "Circuit identifier / breaker number."
+    },
+
+    "CalculatedVA": {
+      "guid": "",
+      "revitName": "Calculated VA",
+      "notes": "Example computed output. Create/map a shared parameter if you want the web service to write back to Revit."
+    },
+
+    "Level": {
+      "guid": "",
+      "revitName": "Level",
+      "notes": "Example built-in parameter (not shared). Leave guid blank; we will use revitName."
+    },
+    "TypeMark": {
+      "guid": "",
+      "revitName": "Type Mark",
+      "notes": "Example built-in parameter (not shared)."
+    },
+    "Manufacturer": {
+      "guid": "",
+      "revitName": "Manufacturer",
+      "notes": "Example built-in parameter (not shared)."
+    },
+    "Model": {
+      "guid": "",
+      "revitName": "Model",
+      "notes": "Example built-in parameter (not shared)."
+    }
+  },
+
+  "excelExportKeys": [
+    "Tag",
+    "Comments",
+    "VoltageV",
+    "CurrentA",
+    "Phase",
+    "ConductorType",
+    "ConduitSize",
+    "Panel",
+    "CircuitNumber"
+  ],
+
+  "webBagKeys": [
+    "Tag",
+    "Comments",
+    "VoltageV",
+    "CurrentA",
+    "Phase",
+    "ConductorType",
+    "ConduitSize",
+    "Panel",
+    "CircuitNumber",
+    "Level",
+    "TypeMark",
+    "Manufacturer",
+    "Model"
+  ]
+}
