@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Amentum Revit Quick Start</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; line-height: 1.45; margin: 32px; color: #20242a; max-width: 900px; }
+    h1, h2 { color: #003366; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    li { margin: 8px 0; }
+    .note { background: #eaf3fb; border-left: 4px solid #003366; padding: 10px 16px; border-radius: 4px; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>Amentum Revit</h1>
+  <p>Amentum Revit adds Revit ribbon tools for Excel parameter exchange, CAD round-trip indexing, shared parameter batch workflows, and BIM export — configured for corporate Amentum deployments.</p>
+
+  <h2>Where to Find It</h2>
+  <p>Restart Revit after installation, then open the <strong>Amentum</strong> ribbon tab.</p>
+
+  <h2>Supported Revit Versions</h2>
+  <ul>
+    <li>Autodesk Revit 2025</li>
+    <li>Autodesk Revit 2026</li>
+    <li>Autodesk Revit 2027</li>
+  </ul>
+
+  <h2>Common Workflows</h2>
+  <ul>
+    <li><strong>Excel Parameter Sync:</strong> Import and export Revit element parameters to and from Excel workbooks for bulk editing and reporting.</li>
+    <li><strong>Export 3D DWG:</strong> Exports the active 3D view, writes Revit index and 3D metadata sidecars, and posts the companion package to the local Amentum web app when available.</li>
+    <li><strong>CAD Sync:</strong> Reads the latest AutoCAD JSON index and moves mapped Revit elements by detected CAD deltas. CAD objects should carry a Revit unique ID in the layer name using <code>RVTUID_...</code>, or matching Revit elements should include the configured CAD handle parameter.</li>
+    <li><strong>Category Shared Params:</strong> Generates a Revit shared parameter file grouped by category and normalises common engineering names (e.g. electrical potential → Voltage).</li>
+    <li><strong>Batch Tools:</strong> Export family/parameter sheets, apply parameter updates, and merge shared parameter GUID maps.</li>
+    <li><strong>Amentum Web App:</strong> Opens the local dashboard at <code>http://127.0.0.1:8765/app</code> when the local service is running.</li>
+  </ul>
+
+  <h2>Installation</h2>
+  <div class="note">
+    <strong>Corporate Deployment:</strong> This add-in is pre-licensed for all Amentum workstations. No Autodesk App Store account or entitlement check is required.
+  </div>
+  <ol>
+    <li>Copy the <code>Amentum.bundle</code> folder to <code>%APPDATA%\Autodesk\Revit\Addins\&lt;year&gt;\</code> <strong>or</strong> to <code>%PROGRAMDATA%\Autodesk\Revit\Addins\&lt;year&gt;\</code> for a machine-wide deployment.</li>
+    <li>Restart Revit. The <strong>Amentum</strong> tab will appear in the ribbon automatically.</li>
+  </ol>
+
+  <h2>Configuration</h2>
+  <p>For local Amentum web workflows, start the Amentum web service and open <code>http://127.0.0.1:8765/app</code>. The Revit add-in posts exports to <code>/api/model-exports</code> and pulls staged edits through <code>/api/revit/sync</code>.</p>
+  <p>The <code>shared_parameter_map.json</code> file in the <code>Contents</code> folder controls shared parameter name normalisation mappings and can be updated by your BIM manager.</p>
+
+  <h2>About Amentum</h2>
+  <p>Amentum delivers advanced engineering, technology, program management, and mission support services for government, defense, energy, and commercial clients worldwide.</p>
+
+  <h2>Support</h2>
+  <p>Contact Amentum at <a href="mailto:support@amentum.com">support@amentum.com</a> or visit <a href="https://amentum.com">amentum.com</a> for assistance.</p>
+</body>
+</html>

@@ -28,11 +28,11 @@
   <h2>Common Workflows</h2>
   <ul>
     <li><strong>Excel Parameter Sync:</strong> Import and export Revit element parameters to and from Excel workbooks for bulk editing and reporting.</li>
-    <li><strong>Export 3D DWG:</strong> Exports the active 3D view, writes Revit index and 3D metadata sidecars, and posts the companion package to the local BIM web app when available.</li>
-    <li><strong>CAD Sync:</strong> Reads the latest AutoCAD JSON index and moves mapped Revit elements by detected CAD deltas. CAD objects should carry a Revit unique ID in the layer name using <code>RVTUID_...</code>, or matching Revit elements should include a CAD handle parameter such as <code>BIMGUI_CAD_HANDLE</code>.</li>
+    <li><strong>Export 3D DWG:</strong> Exports the active 3D view, writes Revit index and 3D metadata sidecars, and posts the companion package to the local Amentum web app when available.</li>
+    <li><strong>CAD Sync:</strong> Reads the latest AutoCAD JSON index and moves mapped Revit elements by detected CAD deltas. CAD objects should carry a Revit unique ID in the layer name using <code>RVTUID_...</code>, or matching Revit elements should include the configured CAD handle parameter.</li>
     <li><strong>Category Shared Params:</strong> Generates a Revit shared parameter file grouped by category and normalises common engineering names (e.g. electrical potential → Voltage).</li>
     <li><strong>Batch Tools:</strong> Export family/parameter sheets, apply parameter updates, and merge shared parameter GUID maps.</li>
-    <li><strong>BIM Web App:</strong> Opens the local dashboard at <code>http://127.0.0.1:8765/app</code> when the local service is running.</li>
+    <li><strong>Amentum Web App:</strong> Opens the local dashboard at <code>http://127.0.0.1:8765/app</code> when the local service is running.</li>
   </ul>
 
   <h2>Installation</h2>
@@ -45,10 +45,13 @@
   </ol>
 
   <h2>Configuration</h2>
-  <p>For local BIM web workflows, start the Amentum BIM web service and open <code>http://127.0.0.1:8765/app</code>. The Revit add-in posts exports to <code>/api/bim-gui/model-exports</code> and pulls staged edits through <code>/api/revit/sync</code>.</p>
+  <p>For local Amentum web workflows, start the Amentum web service and open <code>http://127.0.0.1:8765/app</code>. The Revit add-in posts exports to <code>/api/model-exports</code> and pulls staged edits through <code>/api/revit/sync</code>.</p>
   <p>The <code>shared_parameter_map.json</code> file in the <code>Contents</code> folder controls shared parameter name normalisation mappings and can be updated by your BIM manager.</p>
 
+  <h2>About Amentum</h2>
+  <p>Amentum delivers advanced engineering, technology, program management, and mission support services for government, defense, energy, and commercial clients worldwide.</p>
+
   <h2>Support</h2>
-  <p>Contact your Amentum BIM team or email <a href="mailto:support@tripointmfg.com">support@tripointmfg.com</a> for assistance.</p>
+  <p>Contact Amentum at <a href="mailto:support@amentum.com">support@amentum.com</a> or visit <a href="https://amentum.com">amentum.com</a> for assistance.</p>
 </body>
 </html>

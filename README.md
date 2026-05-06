@@ -39,13 +39,13 @@ Copy the `Amentum.bundle` folder to:
 - **CAD Sync** — Move mapped Revit elements based on detected deltas from an AutoCAD JSON index.
 - **Category Shared Params** — Generate a shared parameter file grouped by category with normalised engineering names.
 - **Batch Tools** — Export family/parameter sheets, apply parameter updates, and merge shared parameter GUID maps.
-- **BIM Web App** — Opens the local dashboard at `http://127.0.0.1:8765/app` when the local service is running.
+- **Amentum Web App** — Opens the local dashboard at `http://127.0.0.1:8765/app` when the local service is running.
 
 ## Configuration
 
 The `shared_parameter_map.json` file in `Amentum.bundle/Contents/` controls shared parameter name normalisation mappings and can be updated by your BIM manager.
 
-For local BIM web workflows, start the Amentum BIM web service and open `http://127.0.0.1:8765/app`. The add-in posts exports to `/api/bim-gui/model-exports` and pulls staged edits through `/api/revit/sync`.
+For local Amentum web workflows, start the Amentum web service and open `http://127.0.0.1:8765/app`. The add-in posts exports to `/api/model-exports` and pulls staged edits through `/api/revit/sync`.
 
 ## Bundle Structure
 
@@ -72,4 +72,4 @@ Amentum.bundle/
 
 ## Support
 
-Contact your Amentum BIM team or email [support@amentum.com](mailto:support@amentum.com).
+Contact Amentum at [support@amentum.com](mailto:support@amentum.com) or visit [amentum.com](https://amentum.com).
