@@ -11,14 +11,6 @@
   UpgradeCode="{C87CE5C4-325A-4C4D-AC82-0EDAE9D01069}">
   <CompanyDetails Name="Amentum" Url="https://amentum.com" Email="support@amentum.com" />
   <Components>
-    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2025" SeriesMax="R2025" />
-    <ComponentEntry AppName="Amentum Revit" Version="1.0.0.0" AppType="ManagedPlugin" ModuleName="./Contents/AmentumRevit.addin" />
-  </Components>
-  <Components>
-    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2026" SeriesMax="R2026" />
-    <ComponentEntry AppName="Amentum Revit" Version="1.0.0.0" AppType="ManagedPlugin" ModuleName="./Contents/AmentumRevit.addin" />
-  </Components>
-  <Components>
     <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2027" SeriesMax="R2027" />
     <ComponentEntry AppName="Amentum Revit" Version="1.0.0.0" AppType="ManagedPlugin" ModuleName="./Contents/AmentumRevit.addin" />
   </Components>

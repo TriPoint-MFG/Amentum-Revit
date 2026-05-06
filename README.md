@@ -6,8 +6,6 @@ Corporate Revit add-in for Amentum — providing Excel parameter exchange, CAD r
 
 | Version | Status |
 |---------|--------|
-| Revit 2025 | ✅ Supported |
-| Revit 2026 | ✅ Supported |
 | Revit 2027 | ✅ Supported |
 
 ## Installation
@@ -20,7 +18,7 @@ Copy the `Amentum.bundle` folder to:
 %PROGRAMDATA%\Autodesk\Revit\Addins\<year>\
 ```
 
-Replace `<year>` with `2025`, `2026`, or `2027` as appropriate. Restart Revit — the **Amentum** tab will appear in the ribbon automatically.
+Replace `<year>` with `2027`. Restart Revit — the **Amentum** tab will appear in the ribbon automatically.
 
 ### Per-User Deployment
 
@@ -30,7 +28,7 @@ Copy the `Amentum.bundle` folder to:
 %APPDATA%\Autodesk\Revit\Addins\<year>\
 ```
 
-> **Note:** This add-in is pre-licensed for all Amentum workstations. No Autodesk App Store account is required.
+> **Note:** This package is prepared as a Revit 2027 bundle and does not require separate entitlement configuration.
 
 ## Features
 
@@ -51,7 +49,7 @@ For local Amentum web workflows, start the Amentum web service and open `http://
 
 ```
 Amentum.bundle/
-├── PackageContents.xml          # Autodesk bundle manifest (Revit 2025–2027)
+├── PackageContents.xml          # Autodesk bundle manifest (Revit 2027)
 └── Contents/
     ├── AmentumRevit.addin       # Revit add-in registration
     ├── AmentumRevit.deps.json   # .NET dependency manifest
