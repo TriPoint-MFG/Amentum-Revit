@@ -89,3 +89,9 @@ Revit, Autodesk Revit 2027, Excel, parameters, CAD sync, DWG export, shared para
 - This package is currently scoped to Revit 2027 only.
 - Ensure the store listing support/contact fields use `support@amentum.com` and `https://amentum.com`.
 - Ensure screenshots and listing text do not reference BIM GUI or TriPoint branding.
+
+## Related Package
+
+If Autodesk Revit 2026 support is needed for a separate listing or distribution channel, use:
+
+`Amentum-Revit-2026-1.0.0.0.zip`

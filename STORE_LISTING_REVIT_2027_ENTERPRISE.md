@@ -98,3 +98,9 @@ Amentum, Autodesk Revit 2027, enterprise, Excel parameter exchange, CAD sync, DW
 - Use this description where a formal or procurement-oriented tone is preferred.
 - Do not describe this package as supporting Revit 2025 or Revit 2026.
 - Ensure screenshots, captions, and support fields use Amentum branding only.
+
+## Related Package
+
+For Autodesk Revit 2026 environments, use the separately prepared package:
+
+`Amentum-Revit-2026-1.0.0.0.zip`

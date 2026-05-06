@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage
+  SchemaVersion="1.0"
+  AutodeskProduct="Revit"
+  Name="Amentum Revit"
+  Description="Amentum Revit provides Excel parameter exchange, batch workflows, CAD round-trip indexing, and shared parameter tools for corporate Amentum deployments."
+  AppVersion="1.0.0.0"
+  Author="Amentum"
+  HelpFile="./Contents/Resources/QuickStart.html"
+  ProductCode="{2711137F-24FA-46E5-A41F-437D165D8B47}"
+  UpgradeCode="{9342BF3E-B749-461C-9ED1-64DF771A63E7}">
+  <CompanyDetails Name="Amentum" Url="https://amentum.com" Email="support@amentum.com" />
+  <Components>
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2026" SeriesMax="R2026" />
+    <ComponentEntry AppName="Amentum Revit" Version="1.0.0.0" AppType="ManagedPlugin" ModuleName="./Contents/AmentumRevit.addin" />
+  </Components>
+</ApplicationPackage>
