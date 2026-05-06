@@ -72,4 +72,4 @@ Amentum.bundle/
 
 ## Support
 
-Contact your Amentum BIM team or email [support@tripointmfg.com](mailto:support@tripointmfg.com).
+Contact your Amentum BIM team or email [support@amentum.com](mailto:support@amentum.com).
