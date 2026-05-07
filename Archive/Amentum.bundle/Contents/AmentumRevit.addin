@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Amentum Revit</Name>
+    <Assembly>.\RevitExcelSync.dll</Assembly>
+    <AddInId>{4ACC215E-F797-41C0-A5AA-A58C2F430A01}</AddInId>
+    <FullClassName>RevitExcelSync.App</FullClassName>
+    <VendorId>AMEN</VendorId>
+    <VendorDescription>Amentum Revit – Excel, CAD, batch parameter, and BIM workflow tools for corporate Amentum deployments</VendorDescription>
+  </AddIn>
+</RevitAddIns>

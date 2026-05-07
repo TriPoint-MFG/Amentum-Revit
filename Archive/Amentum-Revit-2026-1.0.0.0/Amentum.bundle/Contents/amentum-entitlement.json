@@ -1,0 +1,7 @@
+{
+  "mode": "disabled",
+  "appId": "",
+  "endpoint": "https://apps.autodesk.com/webservices/checkentitlement",
+  "cacheMinutes": 30,
+  "offlineGraceHours": 72
+}
