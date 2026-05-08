@@ -1,0 +1,13 @@
+<!--
+  Copy this file to Directory.Build.props (same folder, no .example) and fill in the path below.
+
+  RevitInstallDir must end with a backslash and point to the folder that contains RevitAPI.dll.
+  Example: C:\Program Files\Autodesk\Revit 2026\
+
+  This file is .gitignored on purpose — every dev has Revit installed at their own path.
+-->
+<Project>
+  <PropertyGroup>
+    <RevitInstallDir>C:\Program Files\Autodesk\Revit 2026\</RevitInstallDir>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,85 @@
+{
+  "parameters": {
+    "Tag": {
+      "guid": "",
+      "revitName": "Mark",
+      "notes": "Equipment/panel tag. Maps to the built-in 'Mark' parameter. Leave guid blank to use name lookup."
+    },
+    "Comments": {
+      "guid": "",
+      "revitName": "Comments",
+      "notes": "General comments. Maps to the built-in 'Comments' parameter."
+    },
+    "Panel": {
+      "guid": "",
+      "revitName": "Panel",
+      "notes": "Electrical panel name. Replace guid with your project's shared parameter GUID."
+    },
+    "CircuitNumber": {
+      "guid": "",
+      "revitName": "Circuit Number",
+      "notes": "Electrical circuit number."
+    },
+    "Phase": {
+      "guid": "",
+      "revitName": "Phase",
+      "notes": "Electrical phase (1, 2, 3, or string label)."
+    },
+    "ConductorType": {
+      "guid": "",
+      "revitName": "Conductor Type",
+      "notes": "Wire/conductor material type."
+    },
+    "ConduitSize": {
+      "guid": "",
+      "revitName": "Conduit Size",
+      "notes": "Conduit diameter / trade size."
+    },
+    "VoltageV": {
+      "guid": "",
+      "revitName": "Voltage",
+      "notes": "System voltage in volts. Stored as double."
+    },
+    "CurrentA": {
+      "guid": "",
+      "revitName": "Current",
+      "notes": "Load current in amperes. Stored as double."
+    },
+    "DwgHandle": {
+      "guid": "",
+      "revitName": "DWG Handle",
+      "notes": "AutoCAD entity handle written during DWG round-trip import."
+    },
+    "DwgLayer": {
+      "guid": "",
+      "revitName": "DWG Layer",
+      "notes": "AutoCAD layer name written during DWG round-trip import."
+    }
+  },
+  "excelExportKeys": [
+    "Tag",
+    "Comments",
+    "Panel",
+    "CircuitNumber",
+    "Phase",
+    "ConductorType",
+    "ConduitSize",
+    "VoltageV",
+    "CurrentA",
+    "DwgHandle",
+    "DwgLayer"
+  ],
+  "webBagKeys": [
+    "Tag",
+    "Comments",
+    "Panel",
+    "CircuitNumber",
+    "Phase",
+    "ConductorType",
+    "ConduitSize",
+    "VoltageV",
+    "CurrentA",
+    "DwgHandle",
+    "DwgLayer"
+  ]
+}

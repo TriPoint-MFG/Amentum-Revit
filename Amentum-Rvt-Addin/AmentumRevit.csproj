@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>AmentumRevit</AssemblyName>
+    <RootNamespace>AmentumRevit</RootNamespace>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!--
+      WPF is required for the in-process Sync Panel (no external Python service).
+      All ribbon dialogs, the parameter editor, and the WPF sync window live in-process.
+    -->
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <NoWarn>$(NoWarn);MSB3277</NoWarn>
+
+    <!--
+      Revit 2025+ targets .NET 8.
+      Set RevitInstallDir in Directory.Build.props (copy from Directory.Build.props.example).
+    -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <OutputPath>bin\Revit2026\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Excel read/write (MIT licensed, zero external service dependency). -->
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shared parameter GUID mapping (edit to match Amentum standards). -->
+    <None Include="shared_parameter_map.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="AmentumRevit.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Icons\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Revit API — DLLs come from the Revit install folder. -->
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitInstallDir)\RevitAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitInstallDir)\RevitAPIUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
