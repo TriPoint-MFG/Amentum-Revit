@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Amentum Revit</Name>
+    <Assembly>.\AmentumRevit.dll</Assembly>
+    <AddInId>{C4A7F2E1-3B8D-4E96-A0F5-D2B1C3E8F947}</AddInId>
+    <FullClassName>AmentumRevit.App</FullClassName>
+    <VendorId>AMTM</VendorId>
+    <VendorDescription>Amentum BIM Tools for Revit</VendorDescription>
+  </AddIn>
+</RevitAddIns>
