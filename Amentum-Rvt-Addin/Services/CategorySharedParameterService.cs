@@ -27,7 +27,7 @@ public static class CategorySharedParameterService
             if (string.IsNullOrWhiteSpace(category))
                 continue;
 
-            CollectFromElement(result, category, element, "instance");
+            CollectFromElement(result, category, element.Category?.Id.Value, element, "instance");
 
             Element? typeElement = null;
             try
@@ -41,7 +41,7 @@ public static class CategorySharedParameterService
             }
 
             if (typeElement is not null)
-                CollectFromElement(result, category, typeElement, "type");
+                CollectFromElement(result, category, element.Category?.Id.Value, typeElement, "type");
         }
 
         return result.Values
@@ -150,9 +150,74 @@ public static class CategorySharedParameterService
         }
     }
 
+    public static CategorySharedParameterBindResult BindDefinitionsToProject(
+        Document doc,
+        Autodesk.Revit.ApplicationServices.Application app,
+        string path,
+        IReadOnlyList<CategorySharedParameterCandidate> candidates)
+    {
+        string oldSharedParameterPath = app.SharedParametersFilename;
+        var skipped = new List<string>();
+
+        try
+        {
+            DefinitionFile file = OpenOrRecreateSharedParameterFile(app, path, skipped);
+            int bound = 0;
+
+            foreach (CategorySharedParameterCandidate candidate in candidates)
+            {
+                ExternalDefinition? definition = FindDefinition(file, candidate.GroupName, candidate.ParameterName);
+                if (definition is null)
+                {
+                    skipped.Add($"{candidate.GroupName} / {candidate.ParameterName}: definition was not found in the generated file.");
+                    continue;
+                }
+
+                Category? category = FindCategory(doc, candidate);
+                if (category is null)
+                {
+                    skipped.Add($"{candidate.GroupName} / {candidate.ParameterName}: Revit category was not found.");
+                    continue;
+                }
+
+                try
+                {
+                    if (!category.AllowsBoundParameters)
+                    {
+                        skipped.Add($"{candidate.GroupName} / {candidate.ParameterName}: category does not allow bound parameters.");
+                        continue;
+                    }
+                }
+                catch
+                {
+                }
+
+                CategorySet set = app.Create.NewCategorySet();
+                set.Insert(category);
+                Binding binding = app.Create.NewInstanceBinding(set);
+
+                bool inserted = doc.ParameterBindings.Insert(definition, binding, GroupTypeId.Data);
+                if (!inserted)
+                    inserted = doc.ParameterBindings.ReInsert(definition, binding, GroupTypeId.Data);
+
+                if (inserted)
+                    bound++;
+                else
+                    skipped.Add($"{candidate.GroupName} / {candidate.ParameterName}: Revit did not accept the project binding.");
+            }
+
+            return new CategorySharedParameterBindResult(bound, skipped.Count, skipped);
+        }
+        finally
+        {
+            RestoreSharedParameterPath(app, oldSharedParameterPath);
+        }
+    }
+
     private static void CollectFromElement(
         IDictionary<string, CategorySharedParameterCandidate> rows,
         string category,
+        long? categoryId,
         Element element,
         string scope)
     {
@@ -177,6 +242,7 @@ public static class CategorySharedParameterService
             rows[key] = new CategorySharedParameterCandidate
             {
                 GroupName = category,
+                CategoryId = categoryId,
                 ParameterName = normalizedName,
                 OriginalName = rawName,
                 DataType = dataType,
@@ -411,6 +477,45 @@ public static class CategorySharedParameterService
         return false;
     }
 
+    private static ExternalDefinition? FindDefinition(DefinitionFile file, string groupName, string parameterName)
+    {
+        foreach (DefinitionGroup group in file.Groups)
+        {
+            if (!string.Equals(group.Name, groupName, StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            foreach (Definition definition in group.Definitions)
+            {
+                if (definition is ExternalDefinition external &&
+                    string.Equals(external.Name, parameterName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return external;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private static Category? FindCategory(Document doc, CategorySharedParameterCandidate candidate)
+    {
+        foreach (Category category in doc.Settings.Categories)
+        {
+            try
+            {
+                if (candidate.CategoryId is not null && category.Id.Value == candidate.CategoryId.Value)
+                    return category;
+                if (string.Equals(category.Name, candidate.GroupName, StringComparison.OrdinalIgnoreCase))
+                    return category;
+            }
+            catch
+            {
+            }
+        }
+
+        return null;
+    }
+
     private static void EnsureSharedParameterFile(string path, bool force = false)
     {
         string folder = Path.GetDirectoryName(path) ?? ".";
@@ -450,9 +555,15 @@ public sealed record CategorySharedParameterCreateResult(
     int Skipped,
     IReadOnlyList<string> SkippedMessages);
 
+public sealed record CategorySharedParameterBindResult(
+    int Bound,
+    int Skipped,
+    IReadOnlyList<string> SkippedMessages);
+
 public sealed class CategorySharedParameterCandidate
 {
     public string GroupName { get; init; } = "General";
+    public long? CategoryId { get; init; }
     public string ParameterName { get; init; } = string.Empty;
     public string OriginalName { get; init; } = string.Empty;
     public ForgeTypeId DataType { get; init; } = SpecTypeId.String.Text;

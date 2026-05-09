@@ -26,48 +26,48 @@ public class App : IExternalApplication
         // ── Panel 1: Excel + CAD ─────────────────────────────────────────────
         RibbonPanel panel1 = application.CreateRibbonPanel(tabName, "Excel + CAD");
 
-        AddButton(panel1, asm, "AmentumExportExcel", "Export\nExcel",
+        AddButton(panel1, asm, "AmentumExportExcel", "Export Excel",
             typeof(Commands.ExportSelectedToExcelCommand), "ExportExcel.png",
             "Export selected Revit elements to Excel (.xlsx) with geometry, electrical, and mapped parameters.");
 
-        AddButton(panel1, asm, "AmentumImportExcel", "Import\nExcel",
+        AddButton(panel1, asm, "AmentumImportExcel", "Import Excel",
             typeof(Commands.ImportUpdatesFromExcelCommand), "ImportExcel.png",
             "Read parameter updates from an Excel 'Updates' sheet and apply them to model elements.");
 
         panel1.AddSeparator();
 
-        AddButton(panel1, asm, "AmentumPanelView", "Panel\nView",
+        AddButton(panel1, asm, "AmentumPanelView", "Panel View",
             typeof(Commands.SyncElementsCommand), "PanelView.png",
             "Open the Amentum in-process panel view to review and edit element parameters interactively.");
 
         panel1.AddSeparator();
 
-        AddButton(panel1, asm, "AmentumExportImage", "Export\nImage",
+        AddButton(panel1, asm, "AmentumExportImage", "Export Image",
             typeof(Commands.ExportActiveViewImageCommand), "ExportImage.png",
             "Export the active Revit view as a PNG image.");
 
-        AddButton(panel1, asm, "AmentumExportDWG", "Export\nDWG",
+        AddButton(panel1, asm, "AmentumExportDWG", "Export DWG",
             typeof(Commands.ExportActive3DToDwgCommand), "ExportDWG.png",
             "Export the active 3D view to DWG and write the Revit exchange baseline for CAD round-trip sync.");
 
-        AddButton(panel1, asm, "AmentumImportDWG", "Import\nDWG",
+        AddButton(panel1, asm, "AmentumImportDWG", "Import DWG",
             typeof(Commands.ImportFromDwgJsonCommand), "ImportDWG.png",
             "Import a CAD exchange JSON and move matching Revit elements from the exported DWG baseline.");
 
         // ── Panel 2: Mapping + Scan ───────────────────────────────────────────
         RibbonPanel panel2 = application.CreateRibbonPanel(tabName, "Mapping + Scan");
 
-        AddButton(panel2, asm, "AmentumBuildParameters", "Build\nParameters",
+        AddButton(panel2, asm, "AmentumBuildParameters", "Build Parameters",
             typeof(Commands.BuildParameterMapCommand), "BuildParameters.png",
             "Create a Revit shared parameter file from the model's category parameters and merge the generated GUIDs into the Amentum parameter map.");
 
-        AddButton(panel2, asm, "AmentumParameterJam", "Parameter\nJam",
+        AddButton(panel2, asm, "AmentumParameterJam", "Parameter Jam",
             typeof(Commands.ParameterJamCommand), "ParameterJam.png",
             "Find duplicate project parameter bindings and keep one unique binding set per normalized parameter name.");
 
         panel2.AddSeparator();
 
-        AddButton(panel2, asm, "AmentumUploadMeshPts", "Upload\nMesh + Pts",
+        AddButton(panel2, asm, "AmentumUploadMeshPts", "Upload Mesh + Pts",
             typeof(Commands.ScanAndUploadCommand), "UploadMeshPts.png",
             "Scan nearby elements once, export both OBJ mesh and PLY point cloud, and upload both when AMENTUM_UPLOAD_URL is configured.");
 

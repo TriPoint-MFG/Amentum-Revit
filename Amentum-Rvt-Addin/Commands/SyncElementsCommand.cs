@@ -27,9 +27,10 @@ public class SyncElementsCommand : IExternalCommand
         var ids = uidoc.Selection.GetElementIds();
         if (ids.Count == 0)
         {
-            TaskDialog.Show("Amentum — Sync Panel",
-                "No elements selected. Select one or more elements and try again.");
-            return Result.Cancelled;
+            var rows = ProjectParameterBrowserService.Collect(doc);
+            var browser = new ProjectParameterBrowserWindow(rows);
+            browser.ShowDialog();
+            return Result.Succeeded;
         }
 
         var map      = ParameterMapService.LoadOrDefault();

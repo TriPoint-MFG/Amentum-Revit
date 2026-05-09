@@ -2,7 +2,7 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>Amentum Revit</Name>
-    <Assembly>C:\Users\plude\.AllFilesC\.TriPointLLC\web\amentum\Amentum-Rvt-Addin\bin\Revit2026\net8.0-windows\AmentumRevit.dll</Assembly>
+    <Assembly>C:\Users\plude\.AllFilesC\.TriPointLLC\web\amentum\Amentum-Rvt-Addin\bin\Release\net8.0-windows\AmentumRevit.dll</Assembly>
     <!--
       IMPORTANT: This GUID must be unique and must NOT match your other add-in.
       Do not change it after deployment — Revit uses it to identify this add-in.

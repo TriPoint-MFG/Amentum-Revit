@@ -20,13 +20,11 @@
     -->
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <OutputPath>bin\Revit2026\</OutputPath>
-  </PropertyGroup>
-
   <ItemGroup>
     <!-- Excel read/write (MIT licensed, zero external service dependency). -->
     <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2957.106" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
