@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.IO;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Autodesk.Revit.UI;
@@ -97,14 +98,14 @@ public class App : IExternalApplication
         {
             ToolTip = tooltip,
             LongDescription = tooltip,
-            Image = LoadIcon(iconFileName),
-            LargeImage = LoadIcon(iconFileName)
+            Image = LoadIcon(iconFileName, 16),
+            LargeImage = LoadIcon(iconFileName, 32)
         };
 
         panel.AddItem(data);
     }
 
-    private static ImageSource? LoadIcon(string fileName)
+    private static ImageSource? LoadIcon(string fileName, int pixelSize)
     {
         string assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                              ?? AppContext.BaseDirectory;
@@ -115,9 +116,24 @@ public class App : IExternalApplication
         var image = new BitmapImage();
         image.BeginInit();
         image.CacheOption = BitmapCacheOption.OnLoad;
+        image.DecodePixelWidth = pixelSize;
         image.UriSource = new Uri(path, UriKind.Absolute);
         image.EndInit();
         image.Freeze();
-        return image;
+
+        double scale = Math.Min(pixelSize / (double)image.PixelWidth, pixelSize / (double)image.PixelHeight);
+        double width = Math.Max(1, image.PixelWidth * scale);
+        double height = Math.Max(1, image.PixelHeight * scale);
+        double x = (pixelSize - width) / 2.0;
+        double y = (pixelSize - height) / 2.0;
+
+        var visual = new DrawingVisual();
+        using (DrawingContext dc = visual.RenderOpen())
+            dc.DrawImage(image, new Rect(x, y, width, height));
+
+        var rendered = new RenderTargetBitmap(pixelSize, pixelSize, 96, 96, PixelFormats.Pbgra32);
+        rendered.Render(visual);
+        rendered.Freeze();
+        return rendered;
     }
 }

@@ -8,6 +8,16 @@ Corporate Revit add-in for Amentum. It provides Excel parameter exchange, Panel 
 | --- | --- |
 | Revit 2026 | Supported |
 
+## Current Package
+
+The updated Revit 2026 package is:
+
+```text
+Archive\Amentum-Revit-2026-1.0.2.0.zip
+```
+
+Version `1.0.2.0` scales ribbon icons to Revit's small and large button image sizes and adds Excel workbook guidance for round-trip edits.
+
 ## Local Development Build
 
 The project targets Revit 2026 and .NET 8.
@@ -53,6 +63,19 @@ Restart Revit after a successful build so the **Amentum Tools** ribbon refreshes
 
 The command also merges generated GUIDs into `shared_parameter_map.json`.
 
+## Excel Round-Trip Workflow
+
+1. Select one or more Revit elements.
+2. Choose **Amentum Tools > Export Excel**.
+3. Use the workbook's **Elements** sheet as reference data.
+4. Review **Edit Guide** to see which columns are reference-only and which parameter keys can be round-tripped.
+5. Review **Update Status** to see whether each selected element can accept each parameter change and why.
+6. Add real update rows to **Updates** with `UniqueId`, `ParamKey`, optional `ParamGuid`, and `Value`.
+7. Save the workbook.
+8. Choose **Amentum Tools > Import Excel** and select that workbook.
+
+Editing values directly on **Elements** does not update Revit. Import Excel intentionally reads the **Updates** sheet only.
+
 ## Panel View Notes
 
 Panel View now works in two modes:
@@ -86,6 +109,15 @@ For a local bundle-style smoke test, copy `Amentum.bundle` to:
 ```text
 %APPDATA%\Autodesk\ApplicationPlugins\
 ```
+
+For a user install from the packaged zip:
+
+1. Download `Amentum-Revit-2026-1.0.2.0.zip`.
+2. Right-click the zip, open **Properties**, and choose **Unblock** if Windows shows that option.
+3. Close Revit.
+4. Extract the zip.
+5. Copy the extracted `Amentum.bundle` folder to `%APPDATA%\Autodesk\ApplicationPlugins\`.
+6. Start Revit 2026 and open the **Amentum Tools** ribbon tab.
 
 For the current development setup, use the normal Revit add-in manifest in `%APPDATA%\Autodesk\Revit\Addins\2026\`.
 
