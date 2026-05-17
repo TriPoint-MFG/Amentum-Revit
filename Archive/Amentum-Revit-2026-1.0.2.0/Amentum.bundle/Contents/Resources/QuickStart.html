@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Amentum Revit Quick Start</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; line-height: 1.45; margin: 32px; color: #20242a; max-width: 980px; }
+    h1, h2 { color: #003865; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    li { margin: 8px 0; }
+    .note { background: #eaf3fb; border-left: 4px solid #003865; padding: 10px 16px; border-radius: 4px; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>Amentum Revit</h1>
+  <p>Amentum Revit adds tools for Excel parameter exchange, Panel View parameter review/editing, shared parameter generation, duplicate project-parameter cleanup, DWG round-trip sync, image export, and scan upload workflows.</p>
+  <h2>Where to Find It</h2>
+  <p>Restart Revit 2026 after installation, then open the <strong>Amentum Tools</strong> ribbon tab.</p>
+  <h2>Common Workflows</h2>
+  <ul>
+    <li><strong>Build Parameters:</strong> Preview detected parameters in WebView2, check selected rows or check all, create a shared parameter file, and optionally add selected definitions to Project Parameters.</li>
+    <li><strong>Panel View:</strong> With selected elements, edit parameters. With no selection, browse project and element/type parameters with thumbnails and model path context.</li>
+    <li><strong>Parameter Jam:</strong> Review duplicate project parameter bindings and keep one normalized unique binding set.</li>
+    <li><strong>Export/Import DWG:</strong> Export the active 3D view with Revit IDs, then import a CAD JSON index to move matching Revit elements by CAD deltas.</li>
+    <li><strong>Upload Mesh + Pts:</strong> Scan once, export OBJ mesh and PLY points, and upload both when configured.</li>
+  </ul>
+  <h2>Configuration</h2>
+  <p><code>shared_parameter_map.json</code> controls shared parameter GUID mappings. Set <code>AMENTUM_UPLOAD_URL</code> for scan uploads and <code>AMENTUM_CAD_TO_REVIT_SCALE</code> when CAD JSON coordinates need unit conversion.</p>
+  <div class="note">Build Parameters uses Microsoft Edge WebView2. Install the WebView2 Runtime if the preview window does not open.</div>
+  <h2>Support</h2>
+  <p>Contact Amentum at <a href="mailto:support@amentum.com">support@amentum.com</a> or visit <a href="https://amentum.com">amentum.com</a>.</p>
+</body>
+</html>
